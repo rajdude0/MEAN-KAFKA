@@ -68,41 +68,6 @@ Kafka.prototype = {
 
 }
 
-/*
-this.getTopic = function(){
-    return this.topic;
-}
-
-this.setTopic = function(data){
-    this.topic = data;
-}
-
-this.produce = function(data, callback){
-    this.createPayload(data, function(payload){
-        this.producer.send(payload, function(err,data){
-            callback(err,data);
-        });
-    })
-}
-
-this.createPayload = function(data, callback){
-    payloads = [
-        { topic: data.topic, messages:data.msg, partition: 0 }
-    ];
- callback(payloads);
-}
-
-/*
-producer.on('ready', function(){
-   producer.send(payloads, function(err,data){
-      console.log(data);
-   });
-});
-
-producer.on('error', function(err){
-    console.log('Error: '+err);
-})*/
-
 this.Kafka = new Kafka();
 this.Kafka.runConsumer();
 console.log(this.Kafka);
