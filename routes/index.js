@@ -11,9 +11,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Message Queue' });
 
 });
-router.get('/helo', function(req, res, next){
-  res.send('hello');
-})
+
 router.post('/produce', function(req, res, next){
     console.log(req.body);
     kafka.produce({'topic':kafka.getTopic(),msg:req.body.data}, function(err, data){
