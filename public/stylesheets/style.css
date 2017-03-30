@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#msg-box{
+    margin:10px 0px;
+}
+textarea {
+
+  resize: vertical;
+  font-family:"Times New Roman", Times, serif
+  font-size: 30px;
+  font-weight: bold;
+  
+  color:blue;
+}

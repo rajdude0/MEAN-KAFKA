@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <base href="/">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+    <script src="/javascripts/angularApp.js"></script>
+    <script src="/socket.io-client/socket.io.js"></script>
+    <script>var socket = io.connect('http://'+window.location.hostname+':2120');</script>
+  </head>
+  <body ng-app="messageQueue">
+
+      <div class="row">
+        <ui-view>
+
+        </ui-view>
+      </div>
+
+      <script type="text/ng-template" id="/home.html">
+      <div class="container">
+     <div class="row">
+      <div class="col-sm-6">
+          <h1>Producer</h1>
+          <hr/>
+          <form ng-submit="produce()">
+          <div class="row">
+              <div class="col-sm-12">
+                  <textarea name="prod-msg-area" ng-model="prodMsgArea" class="form-control" id="producer-msg" rows="10" readonly></textarea>
+              </div>
+              <div class="col-sm-12">
+                  <input placeholder="Write your message here.." name="msg" ng-model="msgBox" id="msg-box" class="form-control" type="text">
+              </div>
+              <div class="col-sm-12">
+                <input class="form-control btn btn-primary" type="button" value="Produce">
+              </div>
+          </div>
+          </form>
+      </div>
+      <div class="col-sm-6">
+          <h1>Consumer</h1>
+          <hr/>
+          <div class="row">
+              <div class="col-sm-12">
+                  <textarea class="form-control" ng-model="consMsgArea" id="consumer-msg" rows="10" readonly></textarea>
+              </div>
+          </div>
+      </div>
+    </div>
+    </div>
+      </script>
+  </body>
+</html>
